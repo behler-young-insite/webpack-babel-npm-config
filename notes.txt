@@ -18,3 +18,11 @@ https://www.youtube.com/watch?v=TzdEpgONurw - this tutorial:
         import your styles to your index.js - also a good idea to write your js code on other files and import them to your index.js - styles will be compiled with js now.
         add MiniCssExtractPlugin to your webpack.config.js
 
+https://www.freecodecamp.org/news/how-to-set-up-a-typescript-project-67b427114884/
+https://medium.com/@skiabox/create-a-typescript-webpack-4-tslint-project-fbe9dd04a5d2
+    npm install --save-dev typescript ts-loader tslint tslint-webpack-plugin
+        tslint --init // initializes tslint, creates tslint.json file, this command only works if you have tslint installed globally, otherwise you need to specify pathing
+
+    finding out that with my added configs, it looks like my previous src/index.js isn't being automatically included on the index.html
+        fixed by changing entrypoint on webpack.config to be the src directory (it was previously targeting src/bundle.ts), not it targets all js and ts in src dir
+            didn't fix it, now the ts code isn't included

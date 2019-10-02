@@ -2,7 +2,7 @@ import './styles/main.scss';
 
 $(document).ready(function () {
 
-    console.log('webpack is working!');
+    console.log('index.js is being transpiled');
 
     let button = document.getElementById('button');
     // $('body').on('click', '#button', ()=>{
