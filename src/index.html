@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Babel/Webpack Config</title>
+</head>
+
+<body>
+    <h1>Webpack/babel/npm Config</h1>
+    <button id="button">click me - you'll see a console log</button>
+    <div id="page-content">
+        <div id="left-box">
+            <a href="https://www.youtube.com/watch?v=TzdEpgONurw">The turorial I used to make this:</a>
+            <div>
+                <h2>My notes:</h2>
+                <ul>
+                    <li>npm init -y</li>
+                    <li>npm i -d webpack webpack-cli</li>
+                    <li>change in package.json</li>
+                    <li>scripts to include "build": "webpack"</li>
+                    <li>make src folder in rootdir</li>
+                    <li>make index.js in src folder</li>
+                    <li>npm run build --> makes a dist folder with main.js in it (transpiled from index.js)</li>
+                    <li>npm i -d html-webpack-plugin html-loader // allows you to transpile html from src dir</li>
+                    <li>create webpack.config.js and fill it out (require the plugin, define rules, options, plugins, template
+                        (index.html</li>
+                    <li>location), filename - new name in dist folder, gets transpiled with js on build)</li>
+                    <li>npm i -d webpack-dev-server // saves hastle of turning on/off server on change, triggers rebuilds on the fly
+                    </li>
+                    <li>add dev script to package.json "dev": "webpack-dev-server" // opens local live server for testing</li>
+                    <li>npm i -D babel-loader babel-core babel-preset-env</li>
+                    <li>add babel-loader to webpack.config.js rules</li>
+                    <li>npm i -d file-loader // to transpile specified assets, e.g. src/assets/img.jpg -->
+                        dist/2934t2r39fnsidf9a8f.jpg)</li>
+                    <li>add another rule to webpack.config.js</li>
+                    <li>npm i -D node-sass style-loader css-loader sass-loader mini-css-extract-plugin // enables use of sass</li>
+                    <li>import your styles to your index.js - also a good idea to write your js code on other files and import them
+                        to your</li>
+                    <li>index.js - styles will be compiled with js now.</li>
+                    <li>add MiniCssExtractPlugin to your webpack.config.js</li>
+                </ul>
+            </div>
+        </div>
+        <div id="right-box">
+                <img src="images/Neo.png">
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- <script src="./main.js"></script> --> <!--I don't need to specify this, webpack will take care of attaching it-->
+</body>
+
+</html>
