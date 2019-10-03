@@ -4,21 +4,23 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    entry: path.join(__dirname, '/src'), // now this transpiles my index.js, but not my app.ts
-    //entry: path.join(__dirname, '/src/**/*(.ts|.js)'),  // this does nothing but break the code
+    // entry: path.join(__dirname, '/src'), // now this transpiles my index.js, but not my index.ts
+    // entry: path.join(__dirname, '/src/index.js'),
+    // entry: path.join(__dirname, '/src/index.ts'),
+    entry: path.join(__dirname, '/src'),  // now this compiles my .ts not my .js.. weirdness - because I changed how the loader is used on .ts test?
+    // entry: path.join(__dirname, '/src/**/*(.ts|.js)'),  // this does nothing but break the code
     // entry: path.join(__dirname, '/src/**/*.(ts|js)'),  // this does nothing but break the code
-    // entry: path.join(__dirname, '/src/app.ts'),// this compiles the app.ts
+    // entry: path.join(__dirname, '/src/index.ts'),// this compiles the index.ts
+    // entry: './src', // now this transpiles my index.js, but not my index.ts
+    // entry: './src/index.ts', // hits the index.ts
+    // entry: './src/index.ts', // hits the index.ts
+    // entry: ,
     output: {
         filename: 'bundle.js',
         path: __dirname + 'dist'
     },
     module: {
         rules: [
-            {
-                test: /\.tsx?$/,
-                loader: 'ts-loader',
-                exclude: /node_modules/,
-            },
             {
                 test: /\.js#/,
                 exclude: /node_modules/,
@@ -27,11 +29,18 @@ module.exports = {
                 }
             },
             {
+                test: /\.ts?$/,// was /\.tsx?$/, but I dropped the x since this isn't a react project
+                exclude: /node_modules/,
+                use: {
+                    loader: "ts-loader",
+                }
+            },
+            {
                 test: /\.html$/,
                 use: [
                     {
                         loader: "html-loader",
-                        options: { minimize: true}
+                        options: { minimize: false}
                     }
                 ]
             },
@@ -52,7 +61,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [".tsx", ".ts", ".js"]
+        extensions: [".ts", ".js"]
     },
     plugins: [
         new TSLintPlugin({

@@ -11,9 +11,13 @@
 <body>
     <h1>Webpack/babel/npm Config</h1>
     <button id="button">click me - you'll see a console log</button>
+    <h2>Tutorials used:</h2>
+    <a href="https://www.youtube.com/watch?v=TzdEpgONurw">Webpack Setup</a>
+    <a href="https://www.freecodecamp.org/news/how-to-set-up-a-typescript-project-67b427114884/">Typescript</a>
+    <a href="https://medium.com/@skiabox/create-a-typescript-webpack-4-tslint-project-fbe9dd04a5d2">Typescript, webpack4,
+        tslint</a>
     <div id="page-content">
         <div id="left-box">
-            <a href="https://www.youtube.com/watch?v=TzdEpgONurw">The turorial I used to make this:</a>
             <div>
                 <h2>My notes:</h2>
                 <ul>
@@ -41,6 +45,15 @@
                         to your</li>
                     <li>index.js - styles will be compiled with js now.</li>
                     <li>add MiniCssExtractPlugin to your webpack.config.js</li>
+                    <li>npm install --save-dev typescript ts-loader tslint tslint-webpack-plugin</li>
+                    <li>tslint --init // initializes tslint, creates tslint.json file, this command only works if you have tslint installed globally, otherwise you need to specify pathing</li>
+                    <li>I ended up importing my index.js onto my index.ts and targeting index.ts for compilation - couldn't figure out how to target both and bundle together in bundle.js</li>
+                    <li>added a .escheckrc to root dir to configure es checks (https://github.com/dollarshaveclub/es-check) - installing both -globally and as a --save-dev</li>
+                    <li>with a .escheckrc I can just run "es-check" in the terminal and it will use my config file arguments, otherwise you can</li>
+                    <li>run es-check es5 './dist/**/*.js' without it - "es-check target-version file-globs</li>
+                    <li>es-check es5 './node_modules/**/*.js' for node modules - find non es5s that need to also be transpiled - takes a minute</li>
+                    <li>browserlist info (https://github.com/browserslist/browserslist) - explicitly adding to package.json browserlistst rather than .browserslistrc</li>
+                    <li>added a babel.config.js but commented it out - not sure which plugins to plug in</li>
                 </ul>
             </div>
         </div>

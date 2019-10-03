@@ -26,3 +26,12 @@ https://medium.com/@skiabox/create-a-typescript-webpack-4-tslint-project-fbe9dd0
     finding out that with my added configs, it looks like my previous src/index.js isn't being automatically included on the index.html
         fixed by changing entrypoint on webpack.config to be the src directory (it was previously targeting src/bundle.ts), not it targets all js and ts in src dir
             didn't fix it, now the ts code isn't included
+        I ended up fixing this by just importing my index.js onto my index.ts and targeting index.ts for compilation
+
+    added a .escheckrc to root dir to configure es checks (https://github.com/dollarshaveclub/es-check) - installing both -globally and as a --save-dev
+        with a .escheckrc I can just run "es-check" in the terminal and it will use my config file arguments, otherwise you can run  es-check es5 './dist/**/*.js' without it - "es-check <target version> <file globs>
+        es-check es5 './node_modules/**/*.js' for node modules - find non es5s that need to also be transpiled - takes a minute
+
+    browserlist info (https://github.com/browserslist/browserslist) - explicitly adding to package.json browserlistst rather than .browserslistrc
+
+    added a babel.config.js but commented it out - not sure which plugins to plug in
